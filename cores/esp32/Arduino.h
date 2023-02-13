@@ -213,4 +213,6 @@ long random(long);
 
 #include "pins_arduino.h"
 
+#include "ArduinoX2.h"
+
 #endif /* _ESP32_CORE_ARDUINO_H_ */

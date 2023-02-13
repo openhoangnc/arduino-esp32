@@ -69,6 +69,9 @@ extern "C" void app_main()
     loopTaskWDTEnabled = false;
     initArduino();
     xTaskCreateUniversal(loopTask, "loopTask", getArduinoLoopTaskStackSize(), NULL, 1, &loopTaskHandle, ARDUINO_RUNNING_CORE);
+    #if ESP32_DUAL_TASK
+    xTaskCreateUniversal(loopTask2, "loopTask2", getArduinoLoopTaskStackSize(), NULL, 1, &loopTaskHandle2, 1-ARDUINO_RUNNING_CORE);
+    #endif
 }
 
 #endif
